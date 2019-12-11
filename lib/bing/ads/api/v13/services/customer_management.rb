@@ -19,6 +19,15 @@ module Bing
               response_body[:accounts_info][:account_info]
             end
 
+            def get_account(account_id)
+              payload = {
+                account_id: account_id
+              }
+              response = call(:get_account, payload.compact)
+              response_body = response_body(response, __method__)
+              response_body[:account]
+            end
+
             # TODO operations: https://msdn.microsoft.com/en-us/library/bing-ads-customer-management-service-operations.aspx
 
             private
